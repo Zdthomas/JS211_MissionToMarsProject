@@ -11,9 +11,51 @@ const jobTypes = {
 
 // Your code will go here
 
+class CrewMember {
+  constructor(name, job, specialSkill) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
 
+  }
 
+  enterShip(ship) {
 
+    this.ship = ship;
+
+    ship.crew.push(this);
+
+  }
+}
+
+const crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry')
+
+const crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology')
+
+class Ship {
+  constructor(name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability
+    this.crew = []
+  }
+
+  missionStatement() {
+    if(this.crew.length > 0) {
+
+      return this.ability;
+
+    }else {
+      return "Can't perform a mission yet."
+    }
+  }
+
+}
+
+let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+
+let hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel')
 
 
 
